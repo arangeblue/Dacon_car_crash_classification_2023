@@ -1,16 +1,30 @@
 # DACON CAR CRASH CLASSIFICATION 
 
+<br>
+
 --- 
 
+<br>
 
-[링크](https://dacon.io/competitions/official/236064/overview/description)
+- video dataset
+- result : 11 / 442
+- [Competition](https://dacon.io/competitions/official/236064/overview/description)
+- [PPT](https://www.canva.com/design/DAF82DMIeDw/rvGn8MyOQxJaIuQfyNTx8g/edit?utm_content=DAF82DMIeDw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
-<!-- ![v2](https://user-images.githubusercontent.com/84311270/174434235-a5149804-4091-4d9e-808f-49c86fa7bbac.png) -->
+<br>
+
+![v2](https://user-images.githubusercontent.com/84311270/174434235-a5149804-4091-4d9e-808f-49c86fa7bbac.png)
+
+<br>
 
 **[목적]** 차량의 충돌여부와 기상, 날씨를 분류하는 모델 개발
 **[요약]** 영상데이터를 입력으로 주어지면 차량의 충돌여부와 기상(일반, 비, 눈), 날씨(낮, 밤)을 판단분석
 
+<br>
+
 ## Dataset  
+
+<br>
 
 **Dataset Info.**
 
@@ -41,7 +55,6 @@
 
 <br>
 
-
 - sample_submission.csv [제출양식]
   - sample_id : 영상 샘플 고유 id
   - label : 예측한 차량 충돌 상황 (13가지 Class)
@@ -64,12 +77,11 @@
 
 ![이미지](https://dacon.s3.ap-northeast-2.amazonaws.com/competition/236064/editor-image/1675581601829146.jpeg)
 
-<br>
+<br><br>
 
 ------------------
 
-
-<br>
+<br><br>
   
 # Training Plan
 
@@ -102,7 +114,7 @@
 
 <br>
 
-# Data Clean, Pseudo Label
+### Data Clean, Pseudo Label
 
 <br>
 
@@ -115,13 +127,13 @@
 
 <br>
 
-# Data Augmentation
+## Data Augmentation
 
 - 각 클래스를 구분하는데 필요한 필수 요건(밤, 낮이면 "밝음")에 많이 영향을 주지 않으면서 노이즈를 추가해줄 수 있는 방법으로 augment를 진행
 
 <br>
 
-# Modeling
+## Modeling
 
 - 영상 분류에서 많이 사용되는 모델(slowfast, mvit-400 등)로 학습을 진행
     - MVIT 는 16개의 frame만을 가지고 학습을 진행해야하는 제한이 있었음
@@ -131,7 +143,7 @@
 
 <br>
 
-# Result
+## Result
 
 - 라벨을 수정하고 학습을 진행한 결과 public과 private 점수가 동시에 상승
 - 그 중 private 점수가 public 점수보다 높아진 것을 보아 기준 설정이 어느 정도 맞았다고 판단
@@ -140,7 +152,7 @@
 
 <br>
 
-# Review
+## Review
 
 - 모델의 학습속도와 컴퓨팅리소스 제한으로 인해 실험을 많이 못해본 것
 - 또한 한 모델로 여러 클래스를 판단하는 것보다 하나의 모델로 하나의 클래스를 판단하는 것이 데이터를 전체를 더 적극적으로 사용할 수 있었다고 생각
